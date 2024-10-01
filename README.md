@@ -3,8 +3,6 @@
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue)
 
-[![Edit in CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/vasiliadi/ai-translator-telegram-bot)
-
 ## Usage
 
 1. Get API keys: [@BotFather](https://t.me/BotFather) and [Gemini](https://ai.google.dev/)
