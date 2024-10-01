@@ -1,0 +1,23 @@
+{
+	"name": "ai-translator-telegram-bot",
+	"image": "python:3.11-slim",
+	"onCreateCommand": {
+		"packages": "apt-get update && apt-get install --no-install-recommends -y git && apt-get clean && rm -rf /var/lib/apt/lists/*"
+	},
+	"updateContentCommand": {
+		"pip": "pip install --no-cache-dir -r requirements.txt -U"
+	},
+	"postStartCommand": ["python", "bot.py"],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python", 
+				"ms-python.black-formatter", 
+				"ms-python.isort", 
+				"visualstudioexptteam.vscodeintellicode",
+				"ms-toolsai.jupyter", 
+				"davidanson.vscode-markdownlint"
+			]
+		}
+	}
+}
