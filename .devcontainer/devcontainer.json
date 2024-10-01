@@ -5,7 +5,7 @@
 		"packages": "apt-get update && apt-get install --no-install-recommends -y git && apt-get clean && rm -rf /var/lib/apt/lists/*"
 	},
 	"updateContentCommand": {
-		"pip": "pip install --no-cache-dir -r requirements.txt -U"
+		"pip": "pip install --no-cache-dir -r requirements-dev.txt -U"
 	},
 	"postStartCommand": ["python", "bot.py"],
 	"customizations": {
