@@ -7,7 +7,7 @@
 	"updateContentCommand": {
 		"pip": "pip install --no-cache-dir -r requirements-dev.txt -U"
 	},
-	"postStartCommand": ["python", "bot.py"],
+	// "postStartCommand": ["python", "bot.py"],
 	"customizations": {
 		"vscode": {
 			"extensions": [
