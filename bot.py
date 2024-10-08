@@ -2,6 +2,7 @@ from database import register_user, auth
 from config import bot
 from ai import translate
 from telebot.util import smart_split
+from telebot.formatting import escape_markdown
 
 
 @bot.message_handler(commands=["start"])
@@ -36,6 +37,7 @@ def handle_text(message):
 
     try:
         translation = translate(message.text.strip())
+        translation = escape_markdown(translation)
         if len(translation) > 4096:
             chunks = smart_split(translation, 4096)
             for text in chunks:
