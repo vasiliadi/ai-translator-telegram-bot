@@ -8,7 +8,7 @@ if os.getenv("ENV") != "PROD":
     load_dotenv()
 
 TG_API_TOKEN = os.environ["TG_API_TOKEN"]
-bot = TeleBot(token=TG_API_TOKEN, parse_mode="Markdown")
+bot = TeleBot(token=TG_API_TOKEN, parse_mode="HTML", disable_web_page_preview=True)
 
 
 GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
