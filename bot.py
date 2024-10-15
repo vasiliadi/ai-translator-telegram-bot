@@ -2,7 +2,8 @@ from database import register_user, auth
 from config import bot
 from ai import translate
 from telebot.util import smart_split
-from telebot.formatting import escape_markdown
+from markdown import markdown
+from sulguk import transform_html
 
 
 @bot.message_handler(commands=["start"])
@@ -37,13 +38,14 @@ def handle_text(message):
 
     try:
         translation = translate(message.text.strip())
-        translation = escape_markdown(translation)
-        if len(translation) > 4096:
-            chunks = smart_split(translation, 4096)
+        translation = markdown(translation)
+        translation = transform_html(translation)
+        if len(translation.text) > 4096:
+            chunks = smart_split(translation.text, 4096)
             for text in chunks:
                 bot.reply_to(message, text)
         else:
-            bot.reply_to(message, translation)
+            bot.reply_to(message, translation.text, entities=translation.entities)
     except Exception as e:
         bot.reply_to(message, f"Unexpected: {e}")
 
