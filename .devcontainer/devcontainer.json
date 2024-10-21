@@ -11,11 +11,11 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-python.python", 
-				"ms-python.black-formatter", 
-				"ms-python.isort", 
+				"ms-python.python",
+				"ms-python.black-formatter",
+				"ms-python.isort",
 				"visualstudioexptteam.vscodeintellicode",
-				"ms-toolsai.jupyter", 
+				"ms-toolsai.jupyter",
 				"davidanson.vscode-markdownlint"
 			]
 		}
