@@ -1,5 +1,6 @@
-from config import gemini_flash_model, TARGET_LANGUAGE, SUPPORTED_LANGUAGES
 from google.api_core import retry
+
+from config import SUPPORTED_LANGUAGES, TARGET_LANGUAGE, gemini_flash_model
 
 
 @retry.Retry(predicate=retry.if_transient_error)
