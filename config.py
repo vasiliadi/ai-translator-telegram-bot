@@ -1,6 +1,7 @@
 import os
-from telebot import TeleBot
+
 import google.generativeai as genai
+from telebot import TeleBot
 
 if os.getenv("ENV") != "PROD":
     from dotenv import load_dotenv

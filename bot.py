@@ -1,9 +1,10 @@
-from database import register_user, auth
-from config import bot
-from ai import translate
-from telebot.util import smart_split
 from markdown import markdown
 from sulguk import transform_html
+from telebot.util import smart_split
+
+from ai import translate
+from config import bot
+from database import auth, register_user
 
 
 @bot.message_handler(commands=["start"])

@@ -1,6 +1,6 @@
 from pony import orm
-from config import DB_SETTINGS
 
+from config import DB_SETTINGS
 
 db = orm.Database()
 
