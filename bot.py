@@ -1,6 +1,5 @@
-from markdown import markdown
-from sulguk import transform_html
 from telebot.util import smart_split
+from telegramify_markdown import markdownify
 
 from ai import translate
 from config import MAX_MESSAGE_LENGHT, bot
@@ -39,14 +38,17 @@ def handle_text(message):
 
     try:
         translation = translate(message.text.strip())
-        translation = markdown(translation)
-        translation = transform_html(translation)
-        if len(translation.text) > MAX_MESSAGE_LENGHT:
-            chunks = smart_split(translation.text, 4096)
+        translation = markdownify(translation)
+        if len(translation) > MAX_MESSAGE_LENGHT:
+            chunks = smart_split(translation, 4096)
             for text in chunks:
-                bot.reply_to(message, text)
+                bot.reply_to(
+                    message,
+                    text,
+                    parse_mode="MarkdownV2",
+                )
         else:
-            bot.reply_to(message, translation.text, entities=translation.entities)
+            bot.reply_to(message, translation, parse_mode="MarkdownV2")
     except Exception as e:
         bot.reply_to(message, f"Unexpected: {e}")
 
