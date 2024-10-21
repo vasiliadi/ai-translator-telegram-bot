@@ -41,5 +41,4 @@ def register_user(
             approved=approved,
         )
         return True
-    else:
-        return False  # already registered user
+    return False  # already registered user

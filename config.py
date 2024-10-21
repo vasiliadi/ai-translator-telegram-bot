@@ -9,7 +9,7 @@ if os.getenv("ENV") != "PROD":
     load_dotenv()
 
 TG_API_TOKEN = os.environ["TG_API_TOKEN"]
-bot = TeleBot(token=TG_API_TOKEN, parse_mode="HTML", disable_web_page_preview=True)
+bot = TeleBot(token=TG_API_TOKEN, disable_web_page_preview=True)
 
 
 GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
@@ -24,6 +24,9 @@ gemini_flash_model = genai.GenerativeModel(
         {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"},
     ],
 )
+
+
+MAX_MESSAGE_LENGTH = 4096
 
 
 TARGET_LANGUAGE = os.getenv("TARGET_LANGUAGE")
