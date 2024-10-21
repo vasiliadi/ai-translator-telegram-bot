@@ -3,7 +3,7 @@ from sulguk import transform_html
 from telebot.util import smart_split
 
 from ai import translate
-from config import bot
+from config import MAX_MESSAGE_LENGHT, bot
 from database import auth, register_user
 
 
@@ -41,7 +41,7 @@ def handle_text(message):
         translation = translate(message.text.strip())
         translation = markdown(translation)
         translation = transform_html(translation)
-        if len(translation.text) > 4096:
+        if len(translation.text) > MAX_MESSAGE_LENGHT:
             chunks = smart_split(translation.text, 4096)
             for text in chunks:
                 bot.reply_to(message, text)
