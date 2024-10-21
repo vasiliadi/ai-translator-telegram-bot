@@ -26,7 +26,7 @@ gemini_flash_model = genai.GenerativeModel(
 )
 
 
-MAX_MESSAGE_LENGHT = 4096
+MAX_MESSAGE_LENGTH = 4096
 
 
 TARGET_LANGUAGE = os.getenv("TARGET_LANGUAGE")
