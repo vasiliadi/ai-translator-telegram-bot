@@ -2,7 +2,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15_|_16-blue)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![CodeFactor](https://www.codefactor.io/repository/github/vasiliadi/ai-translator-telegram-bot/badge)](https://www.codefactor.io/repository/github/vasiliadi/ai-translator-telegram-bot)
 
 ## Usage
 
