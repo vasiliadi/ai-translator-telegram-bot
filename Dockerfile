@@ -10,5 +10,5 @@ ENV ENV=PROD
 WORKDIR /app
 COPY --from=builder /app/wheels /wheels
 COPY . .
-RUN pip install --no-cache /wheels/*
+RUN pip install --no-cache-dir /wheels/*
 ENTRYPOINT ["python", "bot.py"]

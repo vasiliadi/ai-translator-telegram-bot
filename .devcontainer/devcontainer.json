@@ -1,6 +1,6 @@
 {
 	"name": "ai-translator-telegram-bot",
-	"image": "python:3.11-slim",
+	"image": "python:3.12-slim",
 	"onCreateCommand": {
 		"packages": "apt-get update && apt-get install --no-install-recommends -y git && apt-get clean && rm -rf /var/lib/apt/lists/*"
 	},
