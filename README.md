@@ -32,6 +32,13 @@ Currently [Pony](https://docs.ponyorm.org/api_reference.html#supported-databases
 
 After completing these steps, you are ready to send any text to the bot and receive translated text.
 
+## SQL Clients
+
+[pgAdmin](https://www.pgadmin.org/) \
+[DbVisualizer](https://www.dbvis.com/) \
+[Beekeeper Studio](https://www.beekeeperstudio.io/) \
+[Navicat](https://www.navicat.com/en/)
+
 ## Docs
 
 [PonyORM](https://docs.ponyorm.org/) \
