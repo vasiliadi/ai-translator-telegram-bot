@@ -23,13 +23,26 @@ gemini_flash_model = genai.GenerativeModel(
         {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
         {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"},
     ],
+    system_instruction="""
+    You are a language model specializing in accurate, context-sensitive translations.
+    Translate each text with precise meaning and maintain the original tone and style.
+    Adapt idioms, cultural references, and metaphors for naturalness in the target
+    language, while providing brief explanations if necessary. Avoid literal
+    translations unless they are essential.
+    When terms have multiple meanings, use the context to select the best fit.
+    Do not translate proper nouns or technical terms unless widely recognized
+    equivalents exist.
+    Ensure consistent terminology, especially for technical or specialized language.
+    Use polite, respectful language, adjusting formality as appropriate for the text
+    type (e.g., legal, business, casual).
+    """,
 )
 
 
 MAX_MESSAGE_LENGTH = 4096
 
 
-TARGET_LANGUAGE = os.getenv("TARGET_LANGUAGE")
+TARGET_LANGUAGE = os.environ.get("TARGET_LANGUAGE", "English")
 
 
 DB_SETTINGS = {

@@ -34,21 +34,20 @@ def handle_info(message):
 def handle_text(message):
     if not auth(message.from_user.id):
         bot.send_message(message.chat.id, "You are not approved.")
-        raise ValueError("User is not approved.")
+        return
 
     try:
         translation = translate(message.text.strip())
-        translation = markdownify(translation)
         if len(translation) > MAX_MESSAGE_LENGTH:
             chunks = smart_split(translation, 4096)
             for text in chunks:
                 bot.reply_to(
                     message,
-                    text,
+                    markdownify(text),
                     parse_mode="MarkdownV2",
                 )
         else:
-            bot.reply_to(message, translation, parse_mode="MarkdownV2")
+            bot.reply_to(message, markdownify(translation), parse_mode="MarkdownV2")
     except Exception as e:
         bot.reply_to(message, f"Unexpected: {e}")
 
