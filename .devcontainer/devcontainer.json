@@ -18,7 +18,7 @@
 				"davidanson.vscode-markdownlint",
 				"tamasfe.even-better-toml",
 				"eamodio.gitlens",
-				"azuretools.vscode-docker"
+				"ms-azuretools.vscode-docker"
 			]
 		}
 	}
