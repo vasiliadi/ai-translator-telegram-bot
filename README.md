@@ -1,7 +1,7 @@
 # AI translator - telegram bot
 
 ![Python](https://img.shields.io/badge/Python-3.12-blue)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15_|_16-blue)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue)
 [![CodeFactor](https://www.codefactor.io/repository/github/vasiliadi/ai-translator-telegram-bot/badge)](https://www.codefactor.io/repository/github/vasiliadi/ai-translator-telegram-bot)
 
 ## Usage
