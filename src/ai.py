@@ -1,12 +1,19 @@
-from google.api_core import retry
+from config import (
+    GEMINI_CONFIG,
+    MODEL_ID,
+    SUPPORTED_LANGUAGES,
+    TARGET_LANGUAGE,
+    gemini_client,
+)
 
-from config import SUPPORTED_LANGUAGES, TARGET_LANGUAGE, gemini_flash_model
 
-
-@retry.Retry(predicate=retry.if_transient_error)
 def translate(text, target_language=TARGET_LANGUAGE):
     if TARGET_LANGUAGE.title() in SUPPORTED_LANGUAGES:
         prompt = f"Translate into {target_language}: {text}"
-        translation = gemini_flash_model.generate_content(prompt)
+        translation = gemini_client.models.generate_content(
+            model=MODEL_ID,
+            contents=prompt,
+            config=GEMINI_CONFIG,
+        )
         return translation.text
     return "Target language not supported."
