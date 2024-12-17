@@ -43,7 +43,8 @@ After completing these steps, you are ready to send any text to the bot and rece
 
 [PonyORM](https://docs.ponyorm.org/) \
 [pyTelegramBotAPI](https://pytba.readthedocs.io/en/latest/) \
-[google-generativeai](https://ai.google.dev/gemini-api/docs/quickstart?lang=python)
+[google-genai](https://googleapis.github.io/python-genai/)
 
 [Telegram Bot API](https://core.telegram.org/bots/api) \
-[Gemini language support](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models#languages-gemini)
+[Gemini language support](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models#languages-gemini) \
+[Gemini v2](https://ai.google.dev/gemini-api/docs/models/gemini-v2)
