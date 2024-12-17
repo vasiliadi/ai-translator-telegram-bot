@@ -1,4 +1,4 @@
-pyTelegramBotAPI==4.24.0
+pyTelegramBotAPI==4.25.0
 google-genai==0.2.2
 pony==0.7.19
 psycopg2-binary==2.9.10
