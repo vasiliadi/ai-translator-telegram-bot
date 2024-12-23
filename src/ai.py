@@ -15,5 +15,7 @@ def translate(text, target_language=TARGET_LANGUAGE):
             contents=prompt,
             config=GEMINI_CONFIG,
         )
+        if translation.text is None:
+            return "Translation failed."
         return translation.text
     return "Target language not supported."
