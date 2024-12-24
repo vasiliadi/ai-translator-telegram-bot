@@ -1,15 +1,9 @@
-FROM python:3.12-alpine AS builder
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install --no-cache-dir pip -U \
-    && pip wheel --wheel-dir /app/wheels -r requirements.txt
-
 FROM python:3.12-alpine
 ENV ENV=PROD \
     PYTHONUNBUFFERED=1
 WORKDIR /app
-COPY --from=builder /app/wheels /wheels
-COPY /src .
-RUN pip install --no-cache-dir pip -U \
-    && pip install --no-cache-dir /wheels/*
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /bin/
+COPY /src requirements.txt ./
+RUN uv pip install --no-cache --system -r requirements.txt \
+    && rm -f requirements.txt
 ENTRYPOINT ["python", "main.py"]

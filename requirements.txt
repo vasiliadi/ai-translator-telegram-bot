@@ -1,5 +1,5 @@
 pyTelegramBotAPI==4.25.0
 google-genai==0.2.2
-pony==0.7.19
-psycopg2-binary==2.9.10
+psycopg[binary]==3.2.3
 telegramify_markdown==0.3.0
+sqlalchemy[asyncio]==2.0.36

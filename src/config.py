@@ -2,7 +2,7 @@ import os
 
 from google import genai
 from google.genai import types
-from telebot import TeleBot
+from telebot.async_telebot import AsyncTeleBot
 
 if os.getenv("ENV") != "PROD":
     from dotenv import load_dotenv
@@ -10,7 +10,7 @@ if os.getenv("ENV") != "PROD":
     load_dotenv()
 
 TG_API_TOKEN = os.environ["TG_API_TOKEN"]
-bot = TeleBot(token=TG_API_TOKEN, disable_web_page_preview=True)
+bot = AsyncTeleBot(token=TG_API_TOKEN, disable_web_page_preview=True)
 
 
 GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
@@ -22,8 +22,8 @@ GEMINI_CONFIG = types.GenerateContentConfig(
         translations.
         Translate each text with precise meaning and maintain the original
         tone and style.
-        Adapt idioms, cultural references, and metaphors for naturalness
-        in the target language, while providing brief explanations if necessary.
+        Adapt idioms, cultural references, and metaphors for naturalness in the target
+        language, while providing brief explanations directly in the text if necessary.
         Avoid literal translations unless they are essential.
         When terms have multiple meanings, use the context to select the best fit.
         Do not translate proper nouns or technical terms unless widely recognized
@@ -62,14 +62,7 @@ MAX_MESSAGE_LENGTH = 4096
 TARGET_LANGUAGE = os.environ.get("TARGET_LANGUAGE", "English")
 
 
-DB_SETTINGS = {
-    "provider": os.getenv("DB_PROVIDER"),
-    "user": os.getenv("DB_USER"),
-    "password": os.getenv("DB_PASSWORD"),
-    "host": os.getenv("DB_HOST"),
-    "port": os.getenv("DB_PORT"),
-    "database": os.getenv("DB_NAME"),
-}
+DB_URL = os.environ["DB_URL"]
 
 
 SUPPORTED_LANGUAGES = [
