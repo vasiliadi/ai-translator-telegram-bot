@@ -7,15 +7,13 @@ from config import (
 )
 
 
-def translate(text, target_language=TARGET_LANGUAGE):
+async def translate(text, target_language=TARGET_LANGUAGE):
     if TARGET_LANGUAGE.title() in SUPPORTED_LANGUAGES:
         prompt = f"Translate into {target_language}: {text}"
-        translation = gemini_client.models.generate_content(
+        translation = await gemini_client.aio.models.generate_content(
             model=MODEL_ID,
             contents=prompt,
             config=GEMINI_CONFIG,
         )
-        if translation.text is None:
-            return "Translation failed."
-        return translation.text
+        return "Translation failed." if translation.text is None else translation.text
     return "Target language not supported."
