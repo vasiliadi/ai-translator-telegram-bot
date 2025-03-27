@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine
+from sqlalchemy import BigInteger, create_engine
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
@@ -13,7 +13,11 @@ class Base(DeclarativeBase):
 class UsersOrm(Base):
     __tablename__ = "users"
 
-    user_id: Mapped[int] = mapped_column(primary_key=True)
+    user_id: Mapped[int] = mapped_column(
+        BigInteger,
+        primary_key=True,
+        autoincrement=False,
+    )
     first_name: Mapped[str | None]
     last_name: Mapped[str | None]
     username: Mapped[str | None]
@@ -21,7 +25,10 @@ class UsersOrm(Base):
 
 
 sync_engine = create_engine(DB_URL, echo=False)
-Base.metadata.create_all(sync_engine, checkfirst=True)
+try:
+    Base.metadata.create_all(sync_engine, checkfirst=True)
+finally:
+    sync_engine.dispose()
 
 
 engine = create_async_engine(DB_URL, echo=False)
