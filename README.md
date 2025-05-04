@@ -41,4 +41,5 @@ After completing these steps, you are ready to send any text to the bot and rece
 
 [Telegram Bot API](https://core.telegram.org/bots/api) \
 [Gemini language support](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models#languages-gemini) \
-[Gemini v2](https://ai.google.dev/gemini-api/docs/models/gemini-v2)
+[Gemini Models](https://ai.google.dev/gemini-api/docs/models/gemini-v2) \
+[Set budget on thinking models](https://ai.google.dev/gemini-api/docs/thinking#set-budget)
