@@ -3,4 +3,4 @@ google-genai==1.18.0
 psycopg[binary]==3.2.9
 telegramify_markdown==0.5.1
 sqlalchemy[asyncio]==2.0.41
-aiohttp==3.11.18
+aiohttp==3.12.6
