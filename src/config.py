@@ -15,7 +15,7 @@ bot = AsyncTeleBot(token=TG_API_TOKEN, disable_web_page_preview=True)
 
 GEMINI_API_KEY = os.environ["GEMINI_API_KEY"]
 gemini_client = genai.Client(api_key=GEMINI_API_KEY)
-MODEL_ID = "gemini-2.5-flash-preview-04-17"  # gemini-2.0-flash
+MODEL_ID = "gemini-2.5-flash"  # gemini-2.0-flash
 GEMINI_CONFIG = types.GenerateContentConfig(
     system_instruction="""
         You are a language model specializing in accurate, context-sensitive
