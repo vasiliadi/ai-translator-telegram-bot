@@ -67,7 +67,7 @@ pyasn1-modules==0.4.2
     # via google-auth
 pydantic==2.12.3
     # via google-genai
-pydantic-core==2.41.4
+pydantic-core==2.41.5
     # via pydantic
 pytelegrambotapi==4.29.1
     # via -r requirements.txt
