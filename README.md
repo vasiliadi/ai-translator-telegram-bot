@@ -43,3 +43,6 @@ After completing these steps, you are ready to send any text to the bot and rece
 [Gemini language support](https://cloud.google.com/vertex-ai/generative-ai/docs/learn/models#languages-gemini) \
 [Gemini Models](https://ai.google.dev/gemini-api/docs/models/gemini-v2) \
 [Set budget on thinking models](https://ai.google.dev/gemini-api/docs/thinking#set-budget)
+
+[uv](https://docs.astral.sh/uv/pip/compile/) \
+`uv pip compile requirements-dev.txt --output-file requirements-compiled.txt`
