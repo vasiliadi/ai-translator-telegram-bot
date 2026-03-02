@@ -1,4 +1,4 @@
-pyTelegramBotAPI==4.30.0
+pyTelegramBotAPI==4.31.0
 google-genai==1.63.0
 psycopg[binary]==3.3.3
 telegramify_markdown==0.5.4
