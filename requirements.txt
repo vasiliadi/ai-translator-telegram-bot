@@ -1,6 +1,6 @@
 pyTelegramBotAPI==4.32.0
 google-genai==1.73.1
 psycopg[binary]==3.3.3
-telegramify_markdown==1.1.1
+telegramify_markdown==1.1.2
 sqlalchemy[asyncio]==2.0.48
 aiohttp==3.13.5
