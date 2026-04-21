@@ -46,14 +46,16 @@ async def handle_text(message):
                 await bot.send_message(
                     message.chat.id,
                     item.text,
-                    entities=[e.to_dict() for e in item.entities],
+                    entities=[e.to_dict() for e in (item.entities or [])],
                 )
             elif item.content_type == ContentType.PHOTO:
                 await bot.send_photo(
                     message.chat.id,
                     (item.file_name, item.file_data),
                     caption=item.caption_text or None,
-                    caption_entities=[e.to_dict() for e in item.caption_entities]
+                    caption_entities=[
+                        e.to_dict() for e in (item.caption_entities or [])
+                    ]
                     or None,
                 )
             elif item.content_type == ContentType.FILE:
@@ -61,7 +63,9 @@ async def handle_text(message):
                     message.chat.id,
                     (item.file_name, item.file_data),
                     caption=item.caption_text or None,
-                    caption_entities=[e.to_dict() for e in item.caption_entities]
+                    caption_entities=[
+                        e.to_dict() for e in (item.caption_entities or [])
+                    ]
                     or None,
                 )
 
