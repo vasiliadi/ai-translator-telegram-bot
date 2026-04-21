@@ -48,6 +48,7 @@ async def handle_text(message):
                     item.text,
                     entities=[e.to_dict() for e in (item.entities or [])],
                 )
+                await asyncio.sleep(1)
             elif item.content_type == ContentType.PHOTO:
                 await bot.send_photo(
                     message.chat.id,
@@ -58,6 +59,7 @@ async def handle_text(message):
                     ]
                     or None,
                 )
+                await asyncio.sleep(1)
             elif item.content_type == ContentType.FILE:
                 await bot.send_document(
                     message.chat.id,
@@ -68,6 +70,7 @@ async def handle_text(message):
                     ]
                     or None,
                 )
+                await asyncio.sleep(1)
 
     except Exception as e:
         await bot.reply_to(message, f"Unexpected: {e}")
