@@ -1,6 +1,3 @@
-[tool.pylint]
-disable = ["C0114", "C0116", "W0718"]
-
 [tool.ruff]
 extend-exclude = ["temp"]
 line-length = 88

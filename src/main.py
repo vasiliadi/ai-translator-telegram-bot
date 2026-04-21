@@ -1,10 +1,10 @@
 import asyncio
 
-from telebot.util import smart_split
-from telegramify_markdown import markdownify
+from telegramify_markdown import telegramify
+from telegramify_markdown.content import ContentType
 
 from ai import translate
-from config import MAX_MESSAGE_LENGTH, bot
+from config import bot
 from database import auth, register_user
 
 
@@ -40,21 +40,31 @@ async def handle_text(message):
             return
 
         translation = await translate(message.text.strip())
-        if len(translation) > MAX_MESSAGE_LENGTH:
-            chunks = smart_split(translation, 4096)
-            for text in chunks:
-                await bot.reply_to(
-                    message,
-                    markdownify(text),
-                    parse_mode="MarkdownV2",
+        results = await telegramify(translation, max_message_length=4090)
+        for item in results:
+            if item.content_type == ContentType.TEXT:
+                await bot.send_message(
+                    message.chat.id,
+                    item.text,
+                    entities=[e.to_dict() for e in item.entities],
                 )
-                await asyncio.sleep(1)
-        else:
-            await bot.reply_to(
-                message,
-                markdownify(translation),
-                parse_mode="MarkdownV2",
-            )
+            elif item.content_type == ContentType.PHOTO:
+                await bot.send_photo(
+                    message.chat.id,
+                    (item.file_name, item.file_data),
+                    caption=item.caption_text or None,
+                    caption_entities=[e.to_dict() for e in item.caption_entities]
+                    or None,
+                )
+            elif item.content_type == ContentType.FILE:
+                await bot.send_document(
+                    message.chat.id,
+                    (item.file_name, item.file_data),
+                    caption=item.caption_text or None,
+                    caption_entities=[e.to_dict() for e in item.caption_entities]
+                    or None,
+                )
+
     except Exception as e:
         await bot.reply_to(message, f"Unexpected: {e}")
 
